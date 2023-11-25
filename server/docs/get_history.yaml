@@ -1,0 +1,48 @@
+Get conversation history
+---
+tags:
+  - Room
+consumes:
+  - application/json
+parameters:
+  - in: body
+    description: Request body containing user ID and conversation ID list.
+    schema:
+      type: object
+      required: true
+      properties:
+        user_id:
+          type: integer
+        conversation_id_list:
+          type: array
+          items:
+            type: integer
+
+responses:
+  200:
+    description: Successful response containing chat history for conversation rooms.
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          conversation_id:
+            type: integer
+          message_list:
+            type: array
+            items:
+              type: object
+              properties:
+                content:
+                  type: string
+                sender:
+                  type: string
+                update_time:
+                  type: string
+  400:
+    description: Bad Request - Invalid or incomplete request data.
+    schema:
+      type: object
+      properties:
+        error:
+          type: string

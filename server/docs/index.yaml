@@ -1,0 +1,12 @@
+Home page
+---
+tags:
+  - Index
+responses:
+  200:
+    description: Successful response
+    content:
+      text/plain:
+        schema:
+          type: string
+          example: "Hello World"

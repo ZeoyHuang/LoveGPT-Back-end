@@ -1,0 +1,33 @@
+Send message to GPT3.5 and get response
+---
+tags:
+  - Room
+consumes:
+  - application/json
+parameters:
+  - in: body
+    description: Send user's message to GPT API and get reponse from its Q&A functionality
+    schema:
+      type: object
+      required:
+        - user_id
+        - robot_id
+        - conversation_id
+        - message
+      properties:
+        user_id:
+          type: integer
+        robot_id:
+          type: integer
+        conversation_id:
+          type: integer
+        message:
+          type: string
+responses:
+  200:
+    description: Response messge from GPT-3.5
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
